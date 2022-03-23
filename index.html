@@ -1,0 +1,26 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>React: Args sent on callbacks</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script crossorigin="" src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin="" src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/babel">
+            const movies = ["Alien", "Predator", "Avatar"]
+
+            const App = () => {
+                const onClickHandler = (e, movie) => alert(movie);
+
+                return movies.map((movie, index) => {
+                    return <button key={'movie_' + index} onClick={e => onClickHandler(e, movie)}>{movie}</button>
+                });
+            }
+
+            ReactDOM.render(<App />, document.getElementById("root"));
+        </script>
+    </body>
+</html>
